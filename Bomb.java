@@ -24,7 +24,7 @@ public class Bomb extends Actor
             world.removeObject(this);
             world.createBomb();
         }
-        else if(isTouching(Sheep.class) && world.score < 0)
+        else if(isTouching(Sheep.class) || world.score < 0)
         {
             world.gameOver();
             world.removeObject(this);
