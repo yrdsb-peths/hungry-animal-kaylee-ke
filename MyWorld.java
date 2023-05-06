@@ -25,8 +25,14 @@ public class MyWorld extends World
         scoreLabel = new Label(0,40);
         addObject(scoreLabel ,20 ,20);
         
-        createOrange();
+        if(score < 0)
+        {
+            gameOver();
+        }
         
+        createOrange();
+        createBomb();
+        createPlum();
     }
     
     /**
@@ -48,12 +54,41 @@ public class MyWorld extends World
     }
     
     /**
+     * decrease score
+     */
+    public void decreaseScore()
+    {
+        score--;
+        scoreLabel.setValue(score);
+    }
+    
+    /**
      * create a new orange at random location at top of screen.
      */
     public void createOrange()
     {
         Orange orange = new Orange();
-        int x = Greenfoot.getRandomNumber(600);
-        addObject(orange, x, 0);
+        int x1 = Greenfoot.getRandomNumber(600);
+        addObject(orange, x1, 0);
+    }
+    
+    /**
+     * create a new bomb at random location at top of screen.
+     */
+    public void createBomb()
+    {
+        Bomb bomb = new Bomb();
+        int x2 = Greenfoot.getRandomNumber(600);
+        addObject(bomb, x2, 0);
+    }
+    
+    /**
+     * create a new plum at random location at top of screen.
+     */
+    public void createPlum()
+    {
+        Plum plum = new Plum();
+        int x3 = Greenfoot.getRandomNumber(600);
+        addObject(plum, x3, 0);
     }
 }
