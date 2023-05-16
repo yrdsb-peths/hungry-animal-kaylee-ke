@@ -8,10 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Sheep extends Actor
 {
-    /**
-     * Act - do whatever the Sheep wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    GreenfootSound sheepSound = new GreenfootSound("PUNCH.mp3");
+    
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
@@ -38,6 +36,7 @@ public class Sheep extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.createOrange();
             world.increaseScore();
+            sheepSound.play();
         }
     }
     
@@ -54,6 +53,7 @@ public class Sheep extends Actor
             world.increaseScore();
             world.increaseScore();
             world.increaseScore();
+            sheepSound.play();
         }
     }
 }
