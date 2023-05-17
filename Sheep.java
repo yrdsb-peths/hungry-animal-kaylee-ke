@@ -9,6 +9,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sheep extends Actor
 {
     GreenfootSound sheepSound = new GreenfootSound("PUNCH.mp3");
+    GreenfootImage[] idle = new GreenfootImage[7];
+    
+    /**
+     * Constructor - The code that gets run one time whrn objects is created
+     */
+    public Sheep()
+    {
+        for(int i=1; i<idle.length; i++)
+        {
+            idle[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
+        }
+        setImage(idle[1]);
+    }
+    
+    /**
+     * Animate the sheep
+     */
+    int imageIndex = 0;
+    public void animateSheep()
+    {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
     
     public void act()
     {
@@ -23,6 +46,9 @@ public class Sheep extends Actor
         
         eatOrange();
         eatPlum();
+        
+        //animate sheep
+        animateSheep();
     }
     
     /**
