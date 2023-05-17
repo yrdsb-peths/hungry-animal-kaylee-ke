@@ -19,6 +19,7 @@ public class Sheep extends Actor
         for(int i=1; i<idle.length; i++)
         {
             idle[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
+            idle[i].scale(90, 75);
         }
         setImage(idle[1]);
     }
