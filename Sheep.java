@@ -13,7 +13,7 @@ public class Sheep extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[7];
     //Direction the sheep is facing
     String facing = "right";
-    
+    SimpleTimer animationTimer = new SimpleTimer();
     /**
      * Constructor - The code that gets run one time whrn objects is created
      */
@@ -32,6 +32,8 @@ public class Sheep extends Actor
             idleLeft[i].scale(90, 75);
         }
         
+        animationTimer.mark();
+        
         // Initial sheep image
         setImage(idleRight[1]);
     }
@@ -42,6 +44,12 @@ public class Sheep extends Actor
     int imageIndex = 0;
     public void animateSheep()
     {
+        if(animationTimer.millisElapsed() < 60)
+        {
+            return;
+        }
+        animationTimer.mark();
+        
         if(facing.equals("right"))
         {
             setImage(idleRight[imageIndex]);
