@@ -9,19 +9,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sheep extends Actor
 {
     GreenfootSound sheepSound = new GreenfootSound("PUNCH.mp3");
-    GreenfootImage[] idle = new GreenfootImage[7];
+    GreenfootImage[] idleRight = new GreenfootImage[7];
+    GreenfootImage[] idleLeft = new GreenfootImage[7];
+    //Direction the sheep is facing
+    String facing = "right";
     
     /**
      * Constructor - The code that gets run one time whrn objects is created
      */
     public Sheep()
     {
-        for(int i=1; i<idle.length; i++)
+        for(int i=1; i<idleRight.length; i++)
         {
-            idle[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
-            idle[i].scale(90, 75);
+            idleRight[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
+            idleRight[i].scale(90, 75);
         }
-        setImage(idle[1]);
+        
+        for(int i=1; i<idleLeft.length; i++)
+        {
+            idleLeft[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
+            idleLeft[i].mirrorHorizontally();
+            idleLeft[i].scale(90, 75);
+        }
+        
+        // Initial sheep image
+        setImage(idleRight[1]);
     }
     
     /**
@@ -30,8 +42,17 @@ public class Sheep extends Actor
     int imageIndex = 0;
     public void animateSheep()
     {
-        setImage(idle[imageIndex]);
-        imageIndex = (imageIndex + 1) % idle.length;
+        if(facing.equals("right"))
+        {
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        else
+        {
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+        
     }
     
     public void act()
@@ -39,10 +60,12 @@ public class Sheep extends Actor
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
+            facing = "left";
         }
         else if(Greenfoot.isKeyDown("right"))
         {
             move(2);
+            facing = "right";
         }
         
         eatOrange();
