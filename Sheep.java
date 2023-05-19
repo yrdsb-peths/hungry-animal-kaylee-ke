@@ -9,8 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Sheep extends Actor
 {
     GreenfootSound sheepSound = new GreenfootSound("PUNCH.mp3");
+    GreenfootSound bombSound = new GreenfootSound("Explosion+6.mp3");
+    
     GreenfootImage[] idleRight = new GreenfootImage[7];
     GreenfootImage[] idleLeft = new GreenfootImage[7];
+    
     //Direction the sheep is facing
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();

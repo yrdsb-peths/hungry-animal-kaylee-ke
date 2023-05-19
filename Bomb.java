@@ -12,6 +12,8 @@ public class Bomb extends Actor
      * Act - do whatever the Bomb wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    GreenfootSound bombSound = new GreenfootSound("Explosion+6.mp3");
+
     public void act()
     {
         setLocation(getX(), getY()+1);
@@ -26,6 +28,7 @@ public class Bomb extends Actor
         }
         else if(isTouching(Sheep.class) || world.score < 0)
         {
+            bombSound.play();
             world.gameOver();
             world.removeObject(this);
             Greenfoot.stop();
