@@ -8,13 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Orange extends Actor
 {
-    /**
-     * Act - do whatever the Orange wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    int speed = 1;
+    
     public void act()
     {
-        setLocation(getX(), getY()+2);
+        setLocation(getX(), getY()+speed);
         
         //remove orange and decrease score when it gets to bottom
         MyWorld world = (MyWorld) getWorld();
@@ -25,5 +23,10 @@ public class Orange extends Actor
             world.decreaseScore();
             world.createOrange();
         }
+    }
+    
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }

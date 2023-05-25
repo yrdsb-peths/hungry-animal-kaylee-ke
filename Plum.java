@@ -8,13 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Plum extends Actor
 {
-    /**
-     * Act - do whatever the Plum wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    int speed = 1;
+    
     public void act()
     {
-        setLocation(getX(), getY()+3);
+        setLocation(getX(), getY()+speed);
         
         //remove plum and decrease score when it gets to bottom
         MyWorld world = (MyWorld) getWorld();
@@ -24,5 +22,10 @@ public class Plum extends Actor
             world.decreaseScore();
             world.createPlum();
         }
+    }
+    
+    public void setSpeed(int spd)
+    {
+        speed = spd;
     }
 }
