@@ -22,15 +22,15 @@ public class Sheep extends Actor
      */
     public Sheep()
     {
-        for(int i=1; i<idleRight.length; i++)
+        for(int i=0; i<idleRight.length; i++)
         {
-            idleRight[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
+            idleRight[i] = new GreenfootImage("sheep_idle/idle "+ (i+1) + ".png");
             idleRight[i].scale(90, 75);
         }
         
-        for(int i=1; i<idleLeft.length; i++)
+        for(int i=0; i<idleLeft.length; i++)
         {
-            idleLeft[i] = new GreenfootImage("sheep_idle/idle "+ i + ".png");
+            idleLeft[i] = new GreenfootImage("sheep_idle/idle "+ (i+1) + ".png");
             idleLeft[i].mirrorHorizontally();
             idleLeft[i].scale(90, 75);
         }
