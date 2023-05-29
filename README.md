@@ -1,14 +1,10 @@
-# Hungry Animal Tutorial
-This is the README.md file.
-Change this file to show your intended audience what you want them to see.
+the game let the sheep to eat the food coming down form the top of the screen.
 
-You can use **Markdown** syntax to format this file to do things like **bold** or *italicize* text.
-[Markdown basics](https://www.markdownguide.org/getting-started/)
+if the sheep gets the plum successfully, your marks increase by 3, otherwise it reduces by 1.
+if the sheep gets the orange successfully, your marks increase by 2, otherwise it reduces by 2.
 
-This particular repository is the starting template for the Hungry Elephant tutorial.
+if the total mark is below 0, or the sheep eats the bomb, the game will be over.
 
-[Part 1: Greenfoot Basics](https://youtu.be/zxaa3X0MihI)
+the fallen speed of the plum and the orange will be faster as the increase of time you play.
 
-[Part 2: Game Enhancements](https://youtu.be/TwID9i0Ey6o)
-
-[Part 3: Final Touches](https://youtu.be/GT-eFwa4Abc)
+good luck and have fun!
